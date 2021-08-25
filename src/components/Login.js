@@ -47,6 +47,9 @@ function Login() {
           </Button>
         </Form>
         <Card.Text className="text-muted text-center my-3">
+          <Link to="/forgot-password">Has olvidado tu contraseña?</Link>
+        </Card.Text>
+        <Card.Text className="text-muted text-center my-3">
           Necesitas una cuenta? <Link to="/signup">Regístrate aquí</Link>
         </Card.Text>
       </Card.Body>
