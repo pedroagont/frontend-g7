@@ -30,8 +30,20 @@ function AuthProvider({ children }) {
     return firebaseAuth.signOut();
   }
 
+  function resetPassword(email){
+    return firebaseAuth.sendPasswordResetEmail(email);
+  }
+
+const value = {
+  currentUser,
+  signup,
+  login,
+  logout,
+  resetPassword
+}
+
   return (
-    <authContext.Provider value={{ currentUser, signup, login, logout }}>
+    <authContext.Provider value={ value }>
       { !loading && children }
     </authContext.Provider>
   );
