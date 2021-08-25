@@ -1,14 +1,16 @@
 import { useRef, useState } from 'react';
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { useAuth } from '../contexts/authContext';
+import { Link, useHistory } from 'react-router-dom';
 
 function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
-  const { currentUser, signup } = useAuth();
+  const { signup } = useAuth();
   const [ error, setError ] = useState('');
   const [ loading, setLoading ] = useState('');
+  const history = useHistory();
 
   async function handleSubmit(e){
     e.preventDefault();
@@ -21,7 +23,7 @@ function Signup() {
       setError('')
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value);
-      console.log(currentUser);
+      history.push('/login');
     } catch (e) {
       setError('Error al crear usuario: ' + e.message)
       setLoading(false)
@@ -54,6 +56,9 @@ function Signup() {
             Sign Up
           </Button>
         </Form>
+        <Card.Text className="text-muted text-center my-3">
+          Ya tienes cuenta? <Link to="/login">Inicia sesión</Link>
+        </Card.Text>
       </Card.Body>
     </Card>
   );
