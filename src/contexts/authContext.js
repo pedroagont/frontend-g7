@@ -35,12 +35,22 @@ function AuthProvider({ children }) {
     return firebaseAuth.sendPasswordResetEmail(email);
   }
 
+  function updateEmail(email){
+    return currentUser.updateEmail(email);
+  }
+
+  function updatePassword(password){
+    return currentUser.updatePassword(password);
+  }
+
 const value = {
   currentUser,
   signup,
   login,
   logout,
-  resetPassword
+  resetPassword,
+  updateEmail,
+  updatePassword
 }
 
   return (
