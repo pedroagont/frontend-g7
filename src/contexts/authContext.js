@@ -22,8 +22,12 @@ function AuthProvider({ children }) {
     return firebaseAuth.createUserWithEmailAndPassword(email, password);
   }
 
+  function login(email, password){
+    return firebaseAuth.signInWithEmailAndPassword(email, password);
+  }
+
   return (
-    <authContext.Provider value={{ currentUser, signup }}>
+    <authContext.Provider value={{ currentUser, signup, login }}>
       { !loading && children }
     </authContext.Provider>
   );
