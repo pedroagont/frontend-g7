@@ -30,6 +30,9 @@ function Profile() {
         <Card.Text className="lead text-center my-3">
           Email: { currentUser.email }
         </Card.Text>
+        <Link to="/update-profile" className="btn btn-primary w-100">
+            Update Profile
+        </Link>
         <Card.Text className="text-muted text-center my-3">
           <Link to="/login" onClick={ handleLogout }>Salir de sesión</Link>
         </Card.Text>
