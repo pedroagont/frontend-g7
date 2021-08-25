@@ -12,6 +12,7 @@ function AuthProvider({ children }) {
   const [ loading, setLoading ] = useState(true);
 
   useEffect(() => {
+    firebaseAuth.languageCode = 'es';
     return firebaseAuth.onAuthStateChanged(user => {
       setCurrentUser(user);
       setLoading(false);
