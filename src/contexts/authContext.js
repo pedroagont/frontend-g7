@@ -26,8 +26,12 @@ function AuthProvider({ children }) {
     return firebaseAuth.signInWithEmailAndPassword(email, password);
   }
 
+  function logout(){
+    return firebaseAuth.signOut();
+  }
+
   return (
-    <authContext.Provider value={{ currentUser, signup, login }}>
+    <authContext.Provider value={{ currentUser, signup, login, logout }}>
       { !loading && children }
     </authContext.Provider>
   );
