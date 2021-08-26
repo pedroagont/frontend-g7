@@ -74,7 +74,7 @@ function UpdateProfile() {
             </Button>
           </Form>
           <Card.Text className="text-muted text-center my-3">
-            <Link to="/">Regresar</Link>
+            <Link to="/profile">Regresar</Link>
           </Card.Text>
         </Card.Body>
       </Card>
