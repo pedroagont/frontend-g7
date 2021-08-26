@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -11,6 +12,12 @@ const firebaseConfig = {
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-const firebaseAuth = firebase.auth();
+const firebaseAuth = firebaseApp.auth();
+const firebaseFirestore = firebaseApp.firestore();
 
-export { firebaseApp, firebaseAuth };
+const firestoreDB = {
+  posts: firebaseFirestore.collection('posts'),
+  getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp
+}
+
+export { firebaseAuth, firestoreDB };
