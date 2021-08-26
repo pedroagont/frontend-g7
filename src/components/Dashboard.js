@@ -1,10 +1,10 @@
-import Profile from './Profile';
+import NavigationBar from './NavigationBar';
 
 function Dashboard() {
   return (
     <>
-      <h2 className="display-3 text-center m-3">Hola desde el dashboard 🕹</h2>
-      <Profile />
+      <NavigationBar />
+      <h2 className="display-4 text-center my-5">Hola desde el dashboard! 🕹</h2>
     </>
   )
 }
