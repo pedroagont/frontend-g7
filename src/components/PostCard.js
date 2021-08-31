@@ -1,8 +1,8 @@
 import React from 'react'
-import { Card } from 'react-bootstrap';
+import { Badge, Card } from 'react-bootstrap';
 
 function PostCard(props) {
-  const { title, content, category } = props;
+  const { title, content, category, createdAt } = props;
 
   function renderCategory() {
     if (category === 'feliz') return '🥳 Feliz'
@@ -14,10 +14,10 @@ function PostCard(props) {
   return (
     <Card className="m-4">
       <Card.Body>
-        <Card.Title>{ title }</Card.Title>
+        <Card.Title>{ title } <Badge pill bg="secondary">{ renderCategory() }</Badge></Card.Title>
         <Card.Text>{ content }</Card.Text>
       </Card.Body>
-      <Card.Footer className="text-muted small">{ renderCategory() }</Card.Footer>
+      <Card.Footer className="text-muted small">{ createdAt.toDate().toString() }</Card.Footer>
     </Card>
   )
 }
