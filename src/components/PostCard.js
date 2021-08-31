@@ -1,8 +1,9 @@
 import React from 'react'
-import { Badge, Card } from 'react-bootstrap';
+import { Button, Badge, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 function PostCard(props) {
-  const { title, content, category, createdAt } = props;
+  const { id, title, content, category, createdAt } = props;
 
   function renderCategory() {
     if (category === 'feliz') return '🥳 Feliz'
@@ -16,6 +17,7 @@ function PostCard(props) {
       <Card.Body>
         <Card.Title>{ title } <Badge pill bg="secondary">{ renderCategory() }</Badge></Card.Title>
         <Card.Text>{ content }</Card.Text>
+        <Button className="w-100" size="sm" as={ Link } to={`/posts/${id}`}>Ver más →</Button>
       </Card.Body>
       <Card.Footer className="text-muted small">{ createdAt.toDate().toString() }</Card.Footer>
     </Card>
