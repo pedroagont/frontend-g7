@@ -13,9 +13,9 @@ function PostCard(props) {
   }
 
   return (
-    <Card className="m-4">
+    <Card className="w-75 mx-auto mt-5">
       <Card.Body>
-        <Card.Title>{ title } <Badge pill bg="secondary">{ renderCategory() }</Badge></Card.Title>
+        <Card.Title className="d-flex justify-content-between align-items-center">{ title } <Badge pill bg="secondary">{ renderCategory() }</Badge></Card.Title>
         <Card.Text>{ content }</Card.Text>
         <Button className="w-100" size="sm" as={ Link } to={`/posts/${id}`}>Ver más →</Button>
       </Card.Body>
