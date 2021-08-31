@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { firestoreDB } from '../firebase';
 import NavigationBar from './NavigationBar';
+import { useAuth } from '../contexts/authContext';
 
 function PostForm() {
   const postTitle = useRef();
@@ -12,6 +13,8 @@ function PostForm() {
   const [ error, setError ] = useState('');
   const [ message, setMessage ] = useState('');
   const [ loading, setLoading ] = useState('');
+
+  const { currentUser } = useAuth();
 
   function handleReset() {
     formRef.current.reset();
@@ -28,7 +31,8 @@ function PostForm() {
         title: postTitle.current.value,
         content: postContent.current.value,
         category: postCategory.current.value,
-        createdAt: firestoreDB.getCurrentTimestamp()
+        createdAt: firestoreDB.getCurrentTimestamp(),
+        createdBy: currentUser.uid
       }
 
       await firestoreDB.posts.add(inputValues)
