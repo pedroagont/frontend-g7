@@ -18,7 +18,10 @@ function NavigationBar() {
           <Nav className="ms-auto">
             {
               currentUser
-              ? <Nav.Link as={ Link } to="/profile">Mi perfil</Nav.Link>
+              ? <>
+                  <Nav.Link as={ Link } to="/new-post">Nuevo post</Nav.Link>
+                  <Nav.Link as={ Link } to="/profile">Perfil</Nav.Link>
+                </>
               : <Nav.Link as={ Link } to="/signup">Regístrate aquí</Nav.Link>
             }
           </Nav>
