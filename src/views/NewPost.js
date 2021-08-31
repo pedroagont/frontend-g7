@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { firestoreDB } from '../firebase';
-import NavigationBar from './NavigationBar';
+import NavigationBar from '../components/NavigationBar';
 import { useAuth } from '../contexts/authContext';
 
 function NewPost() {

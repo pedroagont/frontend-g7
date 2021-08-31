@@ -1,5 +1,5 @@
-import NavigationBar from './NavigationBar';
-import PostList from './PostList';
+import NavigationBar from '../components/NavigationBar';
+import PostList from '../components/PostList';
 
 function Dashboard() {
   return (

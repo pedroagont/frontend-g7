@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Alert, Button, Card } from 'react-bootstrap';
 import { useAuth } from '../contexts/authContext';
 import { Link, useHistory } from 'react-router-dom';
-import NavigationBar from './NavigationBar';
-import MyPosts from './MyPosts';
+import NavigationBar from '../components/NavigationBar';
+import MyPosts from '../components/MyPosts';
 
 function Profile() {
   const { currentUser, logout } = useAuth();

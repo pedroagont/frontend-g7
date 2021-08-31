@@ -1,12 +1,12 @@
 import { AuthProvider } from './contexts/authContext';
-import Signup from './components/Signup';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import PrivateRoute from './components/PrivateRoute';
-import ForgotPassword from './components/ForgotPassword';
-import UpdateProfile from './components/UpdateProfile';
-import Profile from './components/Profile';
-import NewPost from './components/NewPost';
+import PrivateRoute from './contexts/PrivateRoute';
+import Signup from './views/Signup';
+import Login from './views/Login';
+import Dashboard from './views/Dashboard';
+import ForgotPassword from './views/ForgotPassword';
+import UpdateProfile from './views/UpdateProfile';
+import Profile from './views/Profile';
+import NewPost from './views/NewPost';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 

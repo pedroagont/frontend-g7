@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { useAuth } from '../contexts/authContext';
 import { Link } from 'react-router-dom';
-import NavigationBar from './NavigationBar';
+import NavigationBar from '../components/NavigationBar';
 
 function UpdateProfile() {
   const newEmailRef = useRef();
