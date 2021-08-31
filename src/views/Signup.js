@@ -3,6 +3,7 @@ import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { useAuth } from '../contexts/authContext';
 import { Link, useHistory } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
+import Footer from '../components/Footer';
 
 function Signup() {
   const emailRef = useRef();
@@ -35,7 +36,7 @@ function Signup() {
   return (
     <>
       <NavigationBar />
-      <Card className="w-75 mx-auto mt-5">
+      <Card className="w-75 mx-auto mt-5" style={{ marginBottom: '10em' }}>
         <Card.Body>
           <h1 className="display-4 text-center my-3">Sign Up</h1>
           { error && error !== '' && <Alert variant="danger">{ error }</Alert> }
@@ -64,7 +65,7 @@ function Signup() {
           </Card.Text>
         </Card.Body>
       </Card>
-
+      <Footer />
     </>
   );
 }

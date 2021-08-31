@@ -1,4 +1,3 @@
-import React from 'react'
 import { Button, Badge, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 

@@ -20,14 +20,14 @@ function PostList() {
   }, []);
 
   return (
-    <>
+    <div style={{ marginBottom: '10em' }}>
       <h3 className="display-4 text-center my-5">Lista de posts!</h3>
       {
         currentPostList.map(post => (
           <PostCard key={ post.id } id={ post.id } title={ post.title } content={ post.content } category={ post.category } createdAt={ post.createdAt } />
         ))
       }
-    </>
+    </div>
   )
 }
 

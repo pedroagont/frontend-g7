@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react';
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { firestoreDB } from '../firebase';
-import NavigationBar from '../components/NavigationBar';
 import { useAuth } from '../contexts/authContext';
+import NavigationBar from '../components/NavigationBar';
+import Footer from '../components/Footer';
 
 function NewPost() {
   const postTitle = useRef();
@@ -48,7 +49,7 @@ function NewPost() {
   }
 
   return (
-    <>
+    <div style={{ marginBottom: '10em' }}>
       <NavigationBar />
       <Card className="w-75 mx-auto mt-5">
         <Card.Body>
@@ -83,7 +84,8 @@ function NewPost() {
           </Form>
         </Card.Body>
       </Card>
-    </>
+      <Footer />
+    </div>
   );
 }
 

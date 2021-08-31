@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/authContext';
 import { Link, useHistory } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
 import MyPosts from '../components/MyPosts';
+import Footer from '../components/Footer';
 
 function Profile() {
   const { currentUser, logout } = useAuth();
@@ -43,6 +44,7 @@ function Profile() {
         </Card.Body>
       </Card>
       <MyPosts />
+      <Footer />
     </>
   );
 }

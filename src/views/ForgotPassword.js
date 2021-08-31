@@ -3,6 +3,7 @@ import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { useAuth } from '../contexts/authContext';
 import { Link } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
+import Footer from '../components/Footer';
 
 function ForgotPassword() {
   const emailRef = useRef();
@@ -53,6 +54,7 @@ function ForgotPassword() {
           </Card.Text>
         </Card.Body>
       </Card>
+      <Footer />
     </>
   );
 }

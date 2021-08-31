@@ -3,6 +3,7 @@ import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { useAuth } from '../contexts/authContext';
 import { Link, useHistory } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
+import Footer from '../components/Footer';
 
 function Login() {
   const emailRef = useRef();
@@ -61,6 +62,7 @@ function Login() {
           </Card.Text>
         </Card.Body>
       </Card>
+      <Footer />
     </>
   );
 }

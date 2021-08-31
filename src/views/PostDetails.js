@@ -3,17 +3,15 @@ import { Badge, Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { firestoreDB } from '../firebase';
 import NavigationBar from '../components/NavigationBar';
+import Footer from '../components/Footer';
 
 function PostDetails() {
   const [ currentPost, setCurrentPost ] = useState({});
-  const [ loading, setLoading ] = useState(false);
   const { id } = useParams()
 
   async function fetchPostDetails() {
-    setLoading(true)
     const doc = await firestoreDB.posts.doc(id).get()
     setCurrentPost(doc.data())
-    setLoading(false)
   }
 
   useEffect(() => {
@@ -30,15 +28,16 @@ function PostDetails() {
   }
 
   return (
-    !loading && <>
+    <>
       <NavigationBar />
-      <Card className="w-75 mx-auto mt-5">
+      <Card className="w-75 mx-auto mt-5" style={{ marginBottom: '10em' }}>
         <Card.Body>
           <Card.Title className="display-5 d-flex justify-content-between align-items-center">{ title } <Badge pill className="fs-6" bg="secondary">{ renderCategory() }</Badge></Card.Title>
           <Card.Text className="lead mt-4">{ content }</Card.Text>
         </Card.Body>
         <Card.Footer className="text-muted small">{ createdAt && createdAt.toDate().toString() }</Card.Footer>
       </Card>
+      <Footer />
     </>
   )
 }
