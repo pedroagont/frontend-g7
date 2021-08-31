@@ -7,7 +7,7 @@ function MyPosts() {
   const [ currentPostList, setCurrentPostList ] = useState([]);
   const { currentUser } = useAuth();
 
-  async function fetchPosts() {
+  async function fetchMyPosts() {
     const data = await firestoreDB.posts.where('createdBy', '==', currentUser.uid).orderBy('createdAt', 'desc').get()
     const allPosts = [];
     data.docs.forEach(doc => {
@@ -18,7 +18,7 @@ function MyPosts() {
   }
 
   useEffect(() => {
-    fetchPosts();
+    fetchMyPosts();
   }, []);
 
   return (
