@@ -1,29 +1,45 @@
 import { useRef, useState } from 'react';
 import { Alert, Button, Card, Form } from 'react-bootstrap';
+import { firestoreDB } from '../firebase';
 
 function PostForm() {
   const postTitle = useRef();
   const postContent = useRef();
   const postCategory = useRef();
+  const formRef = useRef();
+
   const [ error, setError ] = useState('');
   const [ message, setMessage ] = useState('');
   const [ loading, setLoading ] = useState('');
 
-  function handleSubmit (e) {
+  function handleReset() {
+    formRef.current.reset();
+  }
+
+  async function handleSubmit (e) {
     e.preventDefault();
-    setError('');
-    setLoading(true);
 
-    const postValues = {
-      title: postTitle.current.value,
-      content: postContent.current.value,
-      category: postCategory.current.value,
-      createdAt: new Date()
+    try {
+      setError('');
+      setLoading(true);
+
+      const inputValues = {
+        title: postTitle.current.value,
+        content: postContent.current.value,
+        category: postCategory.current.value,
+        createdAt: firestoreDB.getCurrentTimestamp()
+      }
+
+      await firestoreDB.posts.add(inputValues)
+
+      formRef.current.reset();
+
+      setMessage('Post publicado!');
+      setLoading(false);
+    } catch (e) {
+      setError('Error al crear post: ' + e.message)
+      setLoading(false)
     }
-    console.log(postValues);
-
-    setMessage('Post publicado!');
-    setLoading(false);
   }
 
   return (
@@ -32,7 +48,7 @@ function PostForm() {
         <h1 className="display-4 text-center my-3">Nuevo Post</h1>
         { error && <Alert variant="danger">{ error }</Alert> }
         { message && <Alert variant="success">{ message }</Alert> }
-        <Form onSubmit={ handleSubmit }>
+        <Form onSubmit={ handleSubmit } ref={ formRef }>
           <Form.Group className="mb-3" controlId="formTitle">
             <Form.Label>Título</Form.Label>
             <Form.Control ref={ postTitle } type="text" placeholder="Escribe aquí el título" autoComplete="off" required />
@@ -53,6 +69,9 @@ function PostForm() {
 
           <Button className="w-100" variant="primary" type="submit" disabled={ loading }>
             Publicar
+          </Button>
+          <Button onClick={handleReset } className="w-100 my-2" variant="secondary">
+            Reset
           </Button>
         </Form>
       </Card.Body>
