@@ -34,7 +34,7 @@ function Profile() {
           <Card.Text className="lead text-center my-3">
             Email: { currentUser.email }
           </Card.Text>
-          <Button to="/update-profile" className="w-100">
+          <Button as={ Link } to="/update-profile" className="w-100">
             Update Profile
           </Button>
           <Card.Text className="text-muted text-center my-3">
