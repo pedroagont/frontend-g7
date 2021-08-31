@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { firestoreDB } from '../firebase';
+import NavigationBar from './NavigationBar';
 
 function PostForm() {
   const postTitle = useRef();
@@ -43,39 +44,42 @@ function PostForm() {
   }
 
   return (
-    <Card className="w-75 mx-auto mt-5">
-      <Card.Body>
-        <h1 className="display-4 text-center my-3">Nuevo Post</h1>
-        { error && <Alert variant="danger">{ error }</Alert> }
-        { message && <Alert variant="success">{ message }</Alert> }
-        <Form onSubmit={ handleSubmit } ref={ formRef }>
-          <Form.Group className="mb-3" controlId="formTitle">
-            <Form.Label>Título</Form.Label>
-            <Form.Control ref={ postTitle } type="text" placeholder="Escribe aquí el título" autoComplete="off" required />
-          </Form.Group>
+    <>
+      <NavigationBar />
+      <Card className="w-75 mx-auto mt-5">
+        <Card.Body>
+          <h1 className="display-4 text-center my-3">Nuevo Post</h1>
+          { error && <Alert variant="danger">{ error }</Alert> }
+          { message && <Alert variant="success">{ message }</Alert> }
+          <Form onSubmit={ handleSubmit } ref={ formRef }>
+            <Form.Group className="mb-3" controlId="formTitle">
+              <Form.Label>Título</Form.Label>
+              <Form.Control ref={ postTitle } type="text" placeholder="Escribe aquí el título" autoComplete="off" required />
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formDescription">
-            <Form.Label>Contenido</Form.Label>
-            <Form.Control ref={ postContent } as="textarea" rows={4} placeholder="Escribe aquí el contenido de tu post" autoComplete="off" required />
-          </Form.Group>
+            <Form.Group className="mb-3" controlId="formDescription">
+              <Form.Label>Contenido</Form.Label>
+              <Form.Control ref={ postContent } as="textarea" rows={4} placeholder="Escribe aquí el contenido de tu post" autoComplete="off" required />
+            </Form.Group>
 
-          <Form.Select ref={ postCategory } className="mb-3" aria-label="Categoría" defaultValue="">
-            <option value="">¿Cómo te sientes?</option>
-            <option value="feliz">🥳 Feliz</option>
-            <option value="enamorado">😍 Enamorado</option>
-            <option value="hambriento">😋 Hambriento</option>
-            <option value="cool">😎 Cool</option>
-          </Form.Select>
+            <Form.Select ref={ postCategory } className="mb-3" aria-label="Categoría" defaultValue="">
+              <option value="">¿Cómo te sientes?</option>
+              <option value="feliz">🥳 Feliz</option>
+              <option value="enamorado">😍 Enamorado</option>
+              <option value="hambriento">😋 Hambriento</option>
+              <option value="cool">😎 Cool</option>
+            </Form.Select>
 
-          <Button className="w-100" variant="primary" type="submit" disabled={ loading }>
-            Publicar
-          </Button>
-          <Button onClick={handleReset } className="w-100 my-2" variant="secondary">
-            Reset
-          </Button>
-        </Form>
-      </Card.Body>
-    </Card>
+            <Button className="w-100" variant="primary" type="submit" disabled={ loading }>
+              Publicar
+            </Button>
+            <Button onClick={handleReset } className="w-100 my-2" variant="secondary">
+              Reset
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+    </>
   );
 }
 
