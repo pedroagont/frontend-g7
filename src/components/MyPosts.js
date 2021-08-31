@@ -19,6 +19,7 @@ function MyPosts() {
 
   useEffect(() => {
     fetchMyPosts();
+    // eslint-disable-next-line
   }, []);
 
   return (

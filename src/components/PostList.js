@@ -17,6 +17,7 @@ function PostList() {
 
   useEffect(() => {
     fetchPosts();
+    // eslint-disable-next-line
   }, []);
 
   return (

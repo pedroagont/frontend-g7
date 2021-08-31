@@ -16,6 +16,7 @@ function PostDetails() {
 
   useEffect(() => {
     fetchPostDetails();
+    // eslint-disable-next-line
   }, []);
 
   const { title, content, category, createdAt } = currentPost;
