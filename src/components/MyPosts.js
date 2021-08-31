@@ -26,7 +26,7 @@ function MyPosts() {
       <h3 className="display-4 text-center my-5">Mis posts!</h3>
       {
         currentPostList.map(post => (
-          <PostCard key={ post.id } title={ post.title } content={ post.content } category={ post.category } createdAt={ post.createdAt }></PostCard>
+          <PostCard key={ post.id } id={ post.id } title={ post.title } content={ post.content } category={ post.category } createdAt={ post.createdAt }></PostCard>
         ))
       }
     </>
