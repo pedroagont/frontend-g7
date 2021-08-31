@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Alert, Card } from 'react-bootstrap';
+import { Alert, Button, Card } from 'react-bootstrap';
 import { useAuth } from '../contexts/authContext';
 import { Link, useHistory } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
+import MyPosts from './MyPosts';
 
 function Profile() {
   const { currentUser, logout } = useAuth();
@@ -33,15 +34,15 @@ function Profile() {
           <Card.Text className="lead text-center my-3">
             Email: { currentUser.email }
           </Card.Text>
-          <Link to="/update-profile" className="btn btn-primary w-100">
-          Update Profile
-        </Link>
-        <Card.Text className="text-muted text-center my-3">
-          <Link to="/login" onClick={ handleLogout }>Salir de sesión</Link>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-
+          <Button to="/update-profile" className="w-100">
+            Update Profile
+          </Button>
+          <Card.Text className="text-muted text-center my-3">
+            <Link to="/login" onClick={ handleLogout }>Salir de sesión</Link>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <MyPosts />
     </>
   );
 }
