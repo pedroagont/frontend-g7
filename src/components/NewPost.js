@@ -4,7 +4,7 @@ import { firestoreDB } from '../firebase';
 import NavigationBar from './NavigationBar';
 import { useAuth } from '../contexts/authContext';
 
-function PostForm() {
+function NewPost() {
   const postTitle = useRef();
   const postContent = useRef();
   const postCategory = useRef();
@@ -87,4 +87,4 @@ function PostForm() {
   );
 }
 
-export default PostForm;
+export default NewPost;
