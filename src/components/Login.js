@@ -7,7 +7,7 @@ import NavigationBar from './NavigationBar';
 function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login } = useAuth();
+  const { currentUser, login } = useAuth();
   const [ error, setError ] = useState('');
   const [ loading, setLoading ] = useState('');
   const history = useHistory();
@@ -25,6 +25,10 @@ function Login() {
       setLoading(false)
       console.log(e);
     }
+  }
+
+  if (currentUser) {
+    history.push('/');
   }
 
   return (
