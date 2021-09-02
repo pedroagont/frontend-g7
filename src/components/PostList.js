@@ -7,12 +7,10 @@ function PostList() {
 
   async function fetchPosts() {
     const data = await firestoreDB.posts.orderBy('createdAt', 'desc').get()
-    const allPosts = [];
     data.docs.forEach(doc => {
-      const postElement = { id: doc.id, ...doc.data() }
-      allPosts.push(postElement);
+      const postElement = { id: doc.id, ...doc.data() };
+      setCurrentPostList(prevState => [...prevState, postElement]);
     })
-    setCurrentPostList(allPosts);
   }
 
   useEffect(() => {
